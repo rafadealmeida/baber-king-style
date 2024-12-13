@@ -1,46 +1,111 @@
-# Welcome to your Expo app 👋
+# Bem-vindo ao seu aplicativo Expo com Gluestack-UI 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Este é um projeto [Expo](https://expo.dev) criado com
+[`create-expo-app`](https://www.npmjs.com/package/create-expo-app), integrado ao
+[Gluestack-UI](https://gluestack-ui.dev) para facilitar o desenvolvimento de interfaces modernas e
+responsivas.
 
-## Get started
+### Pré requisitos
 
-1. Install dependencies
+- [Node](https://nodejs.org/pt)
+- [Nvm](https://github.com/coreybutler/nvm-windows/releases/tag/1.1.12) -
+  [Tutorial](https://learn.microsoft.com/pt-br/windows/dev-environment/javascript/nodejs-on-windows)
+
+## Começando
+
+1. Clone o projeto
+
+```bash
+git clone https://github.com/rafadealmeida/baber-king-style.git
+cd baber-king-style
+```
+
+2. **Instale as dependências**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Start the app
 
    ```bash
     npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+Após executar o comando, você verá opções para abrir o aplicativo em:
 
 - [development build](https://docs.expo.dev/develop/development-builds/introduction/)
 - [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- [Expo Go](https://expo.dev/go), uma sandbox limitada para testar o desenvolvimento com Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Pode executar o app por meio de um aplicativo Android ou IOs.
+
+**O smartphone e o computador que está rodando o servidor deve estar no mesmo wifi**
+
+Este projeto utiliza o sistema de roteamento baseado em arquivos do
+[Expo (file-based routing)](https://docs.expo.dev/router/introduction). Os componentes de UI são
+criados utilizando o [Gluestack-UI](https://gluestack.io/), proporcionando consistência visual e
+flexibilidade.
+
+Você pode começar o desenvolvimento editando arquivos dentro da pasta **app** .
 
 ## Get a fresh project
 
-When you're ready, run:
+Caso tenha problema de cache pode rodar o projeto com esta flag, para limpar o cache
 
 ```bash
-npm run reset-project
+npx expo start -c
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Gluestack-UI
+
+Como esta lib de componente funciona , ela adiciona o código de um componente a sua base de código
+usando para estilização - [TailwindCSS](https://tailwindcss.com/)
+
+> Exemplo de como adicionar um componente
+
+```bash
+npx gluestack-ui add card
+```
+
+Estes componentes será adicionado na pasta `components/ui`
+
+## Implementando SplashScreen
+
+1 - Primeiro copiamos a imagem em formato `.png` para a pasta `assets/images` 2 - Iremos modificar o
+arquivo de configuração do expo `app.json` 3 - Adicionamos a imagem no icon
+
+```bash
+    "icon": "./assets/images/splash-icon.png",
+```
+
+4 - Adiconamos a imagem na splash-screen _este é um modo provisório, depois a splash screen será
+feita com gif, para ser animada_
+
+```bash
+     "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ]
+    ],
+```
 
 ## Learn more
 
 To learn more about developing your project with Expo, look at the following resources:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with
+  our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step
+  tutorial where you'll create a project that runs on Android, iOS, and the web.
 
 ## Join the community
 
